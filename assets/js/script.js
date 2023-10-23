@@ -18,7 +18,7 @@ const prevButton = document.querySelector("#prev");
 const nextButton = document.querySelector("#next");
 const playPause = document.querySelector("#play-pause");
 const playerDiv = document.querySelector("#player")
-const mc = new Hammertime(playerDiv)
+const mc = new Hammer(playerDiv)
 mc.on("swiperight", function(e){
   if (currentTrack < catalogue.length - 1) {
     currentTrack++;
