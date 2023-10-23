@@ -18,8 +18,7 @@ const prevButton = document.querySelector("#prev");
 const nextButton = document.querySelector("#next");
 const playPause = document.querySelector("#play-pause");
 const playerDiv = document.querySelector("#player")
-const mc = new Hammer(playerDiv)
-mc.on("swipeleft", function(e){
+const nextEvent = () => {
   if (currentTrack < catalogue.length - 1) {
     currentTrack++;
   } else {
@@ -32,8 +31,8 @@ mc.on("swipeleft", function(e){
   fadeIn();
   getMainColor();
   playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
-})
-mc.on("swiperight", function(e){
+}
+const prevEvent = () => {
   if (currentTrack > 0) {
     currentTrack--;
   } else {
@@ -47,41 +46,16 @@ mc.on("swiperight", function(e){
   playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
   isPlaying = true;
   console.log(track.state);
-})
+}
+const mc = new Hammer(playerDiv)
+mc.on("swipeleft", nextEvent)
+mc.on("swiperight", prevEvent)
 //Infos
 
 // click sur le bouton next
-nextButton.addEventListener("click", () => {
-  if (currentTrack < catalogue.length - 1) {
-    currentTrack++;
-  } else {
-    currentTrack = 0;
-  }
-  slider("next");
-  audio("pause");
-  audio();
-  audio("play");
-  fadeIn();
-  getMainColor();
-  playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
-  console.log(currentTrack);
-});
+nextButton.addEventListener("click", nextEvent);
 // idem pour previous
-prevButton.addEventListener("click", () => {
-  if (currentTrack > 0) {
-    currentTrack--;
-  } else {
-    currentTrack = catalogue.length - 1;
-  }
-  slider("prev");
-  audio("pause");
-  audio();
-  audio("play");
-  fadeIn();
-  playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
-  isPlaying = true;
-  console.log(track.state);
-});
+prevButton.addEventListener("click", prevEvent);
 // actions sur le bouton play-pause
 playPause.addEventListener("click", () => {
   if (isPlaying) {
