@@ -1,0 +1,29 @@
+#slider{
+    overflow: hidden;
+    /* width: 50vw; */
+    position: relative;
+
+}
+#imgA{
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+#coverSlider{
+
+}
+.slideRight{
+    transform: translateX(-100%);
+}
+.slideLeft{
+    transform: translateX(100%);
+}
+.transition{
+    transition: all .5s;
+}
+
+input[type="range" i]::-webkit-slider-thumb{
+    appearance: none;
+    height: 1.5rem !important;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spotilike</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/slider.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script type="module" src="./assets/js/script.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+        <div class="main-container">
+          <div id="player">
+            <div class="cover-container">
+              <div id="slider"></div>
+            </div>
+            <input type="range">
+            <div id="navigation">
+              <button id="prev"><i class="fa-solid fa-backward-step"></i></button>
+              <button id="play-pause"><i class="fa-solid fa-play"></i></button>
+              <button id="next"><i class="fa-solid fa-forward-step"></i></button>
+            </div>
+            <div id="info">
+              <p class="trackname"></p>
+              <p class="artist"></p>
+              <p class="albumname"></p>
+              <div class="duration"></div>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+          </div>
+          <div id="library">
+              <ul id="lib-list">
+              </ul>
+          </div>
+        </div>
+    </main>
+  </body>
+</html>
