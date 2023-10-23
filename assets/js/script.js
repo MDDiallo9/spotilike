@@ -19,7 +19,7 @@ const nextButton = document.querySelector("#next");
 const playPause = document.querySelector("#play-pause");
 const playerDiv = document.querySelector("#player")
 const mc = new Hammer(playerDiv)
-mc.on("swiperight", function(e){
+mc.on("swipeleft", function(e){
   if (currentTrack < catalogue.length - 1) {
     currentTrack++;
   } else {
@@ -32,6 +32,21 @@ mc.on("swiperight", function(e){
   fadeIn();
   getMainColor();
   playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+})
+mc.on("swiperight", function(e){
+  if (currentTrack > 0) {
+    currentTrack--;
+  } else {
+    currentTrack = catalogue.length - 1;
+  }
+  slider("prev");
+  audio("pause");
+  audio();
+  audio("play");
+  fadeIn();
+  playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+  isPlaying = true;
+  console.log(track.state);
 })
 //Infos
 
