@@ -44,6 +44,7 @@ const prevEvent = () => {
   audio("play");
   fadeIn();
   playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+  getMainColor();
   isPlaying = true;
   console.log(track.state);
 }
